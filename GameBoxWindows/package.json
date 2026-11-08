@@ -1,0 +1,48 @@
+{
+  "name": "game-box",
+  "productName": "Game Box",
+  "version": "1.2.0",
+  "description": "Game Box",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win nsis --x64"
+  },
+  "build": {
+    "appId": "com.gamebox.app",
+    "productName": "Game Box",
+    "files": [
+      "main.js",
+      "index.html",
+      "build/icon.ico"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Game Box",
+      "artifactName": "GameBox-Setup.exe",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "contentVersion": 1
+}
